@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "269218573130",
+    "project_id": "app-controle-financeiro-9a42d",
+    "storage_bucket": "app-controle-financeiro-9a42d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:269218573130:android:288cd26ff2281f6602efb3",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7mGXXb4t7yqSUf2mZfB6pYaUEK2xwG-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
