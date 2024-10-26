@@ -13,6 +13,12 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passwordController = TextEditingController();
   bool _isLoading = false;
 
+  void _showMessage(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(message)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,17 +63,19 @@ class _LoginScreenState extends State<LoginScreen> {
                           email: email,
                           password: password,
                         );
-                        print('Usuário autenticado: ${userCredential.user?.email}');
+                        _showMessage('Usuário autenticado: ${userCredential.user?.email}');
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (context) => FinanceControlPage()),
                         );
                       } on FirebaseAuthException catch (e) {
                         if (e.code == 'user-not-found') {
-                          print('Nenhum usuário encontrado para esse email.');
+                          _showMessage('Nenhum usuário encontrado para esse email.');
                         } else if (e.code == 'wrong-password') {
-                          print('Senha errada fornecida para esse usuário.');
+                          _showMessage('Senha errada fornecida para esse usuário.');
                         }
+                      } catch (e) {
+                        _showMessage('Erro ao tentar fazer login. Por favor, tente novamente.');
                       } finally {
                         setState(() {
                           _isLoading = false;

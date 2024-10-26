@@ -14,30 +14,29 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
+      child: Column(
         children: <Widget>[
           UserAccountsDrawerHeader(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.blue,
             ),
             accountName: Text(
               userName ?? 'Carregando...',
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 24,
               ),
             ),
             accountEmail: Text(
               userEmail ?? 'Carregando...',
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
               ),
             ),
             currentAccountPicture: CircleAvatar(
               backgroundImage: imageUrl != null
                   ? NetworkImage(imageUrl!)
-                  : AssetImage('assets/profile_picture.png') as ImageProvider,
+                  : const AssetImage('assets/profile_picture.png') as ImageProvider,
             ),
           ),
           ListTile(
@@ -64,6 +63,7 @@ class CustomDrawer extends StatelessWidget {
               // Handle settings tap
             },
           ),
+          Spacer(),
           ListTile(
             leading: const Icon(Icons.logout),
             title: const Text('Logout'),

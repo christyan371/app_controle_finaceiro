@@ -244,16 +244,24 @@ class _FinanceControlPageState extends State<FinanceControlPage> {
           children: <Widget>[
             // Adicione o seletor de data aqui
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+              Text(
+                'Total: ${_currencyFormat.format(_totalValue)}',
+              ),
+              Row(
+                children: [
                 Text(
                   _selectedDate == null
-                      ? 'Selecione uma data'
-                      : 'Data: ${_dateFormat.format(_selectedDate!)}',
+                    ? 'Selecione uma data'
+                    : 'Data: ${_dateFormat.format(_selectedDate!)}',
                 ),
                 IconButton(
                   icon: Icon(Icons.calendar_today),
                   onPressed: _pickDate,
                 ),
+                ],
+              ),
               ],
             ),
             Text('Total: ${_currencyFormat.format(_totalValue)}'),
